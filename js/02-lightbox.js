@@ -1,7 +1,6 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
-console.log(galleryItems);
 const palettePicturesRef = document.querySelector(".gallery");
 const palettePictures = createCardsGallery(galleryItems);
 palettePicturesRef.insertAdjacentHTML("beforeend", palettePictures);
@@ -16,18 +15,19 @@ function createCardsGallery(galleryItems) {
     .join("");
 }
 palettePicturesRef.addEventListener("click", onImageClick);
+
 function onImageClick(event) {
   event.preventDefault();
 
   if (event.target.nodeName !== "IMG") {
     return;
   }
-  let gallery = new SimpleLightbox(".gallery a");
-  gallery.on("show.simplelightbox", function () {
-    // do something…
+  var lightbox = new SimpleLightbox(".gallery a", {
+    overlayOpacity: 0.8,
+    navText: ["←", "→"],
+    captionDelay: 250,
+    captionsData: "alt",
+    animationSpeed: 400,
   });
 
-  gallery.on("error.simplelightbox", function (e) {
-    console.log(e); // some usefull information
-  });
 }

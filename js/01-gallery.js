@@ -1,8 +1,6 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
-console.log(galleryItems);
-
 const palettePicturesRef = document.querySelector(".gallery");
 const palettePictures = createCardsGallery(galleryItems);
 palettePicturesRef.insertAdjacentHTML("beforeend", palettePictures);
@@ -24,6 +22,7 @@ function createCardsGallery(galleryItems) {
     .join("");
 }
 palettePicturesRef.addEventListener("click", onImageClick);
+
 function onImageClick(event) {
   event.preventDefault();
 
