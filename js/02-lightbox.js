@@ -16,18 +16,18 @@ function createCardsGallery(galleryItems) {
 }
 palettePicturesRef.addEventListener("click", onImageClick);
 
+var lightbox = new SimpleLightbox(".gallery a", {
+  overlayOpacity: 0.8,
+  navText: ["←", "→"],
+  captionDelay: 250,
+  captionsData: "alt",
+  animationSpeed: 400,
+});
+
 function onImageClick(event) {
   event.preventDefault();
 
   if (event.target.nodeName !== "IMG") {
     return;
   }
-  var lightbox = new SimpleLightbox(".gallery a", {
-    overlayOpacity: 0.8,
-    navText: ["←", "→"],
-    captionDelay: 250,
-    captionsData: "alt",
-    animationSpeed: 400,
-  });
-
 }
